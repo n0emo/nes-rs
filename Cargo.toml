@@ -1,6 +1,17 @@
-[package]
-name = "nes-rs"
+[workspace]
+members = [ "packages/console","packages/desktop"]
+resolver = "2"
+
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
+authors = ["Albert Shefner <usn0emo@gmail.com>"]
+description = "NES emulator written in Rust"
 
-[dependencies]
+[workspace.dependencies]
+nes-console.path = "./packages/console"
+nes-desktop.path = "./packages/desktop"
+
+eframe = "0.33.0"
+env_logger = "0.11.8"
+log = "0.4.28"

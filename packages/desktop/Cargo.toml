@@ -1,0 +1,13 @@
+[package]
+name = "nes-desktop"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description.workspace = true
+
+[dependencies]
+nes-console = { workspace = true }
+
+eframe = { workspace = true }
+env_logger = { workspace = true }
+log = { workspace = true }
