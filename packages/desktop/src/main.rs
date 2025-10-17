@@ -3,7 +3,9 @@
 use std::{sync::Arc, thread, time::Duration};
 
 use eframe::{
-    egui::{self, mutex::RwLock, Color32, Rect, Sense, Vec2}, run_native, App, CreationContext, NativeOptions
+    App, CreationContext, NativeOptions,
+    egui::{self, Color32, Rect, Sense, Vec2, mutex::RwLock},
+    run_native,
 };
 use nes_console::{Cpu, Memory, ReadError, WriteError};
 
@@ -134,13 +136,16 @@ impl NesApp {
             }
         });
 
-        Self { cpu, mem, _join: join }
+        Self {
+            cpu,
+            mem,
+            _join: join,
+        }
     }
 }
 
 impl App for NesApp {
     fn update(&mut self, ctx: &eframe::egui::Context, _frame: &mut eframe::Frame) {
-
         egui::Window::new("Screen").resizable(true).show(ctx, |ui| {
             let space = ui.available_size();
             let (res, painter) = ui.allocate_painter(space, Sense::empty());
